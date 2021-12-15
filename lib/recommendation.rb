@@ -6,11 +6,11 @@ module WikiStumble
     ARTICLE_COUNT = 1
 
     attr_reader :title, :description, :extract, :url, :thumbnail, :categories,
-                :related_articles, :summary # RM
+                :article_type, :related_articles
 
-    def initialize(category_scores, good_article: false, article_count: ARTICLE_COUNT)
+    def initialize(category_scores, article_type: :any, article_count: ARTICLE_COUNT)
       # TODO implement category_scores
-      @good_article = good_article
+      @article_type = article_type.to_sym
       @article_count = article_count
       summary, @categories = recommended_summary_and_categories
       @title = summary["title"]
@@ -18,15 +18,14 @@ module WikiStumble
       @extract = summary["extract"]
       @url = summary.dig("content_urls", "desktop", "page")
       @thumbnail = summary.dig("thumbnail", "source")
-      @summary = summary # RM
-      @related_articles = related_articles(@summary)
+      @related_articles = related_articles(summary)
     end
 
     private
 
     def recommended_summary_and_categories
       articles = (1..@article_count).map do
-        article = random_article(good_article: @good_article)
+        article = random_article(type: @article_type)
         article_id = article["revision"]
         categories = categories_for_id(article_id)
         [article, categories]
@@ -44,17 +43,21 @@ module WikiStumble
     end
 
     # Wikipedia REST API documentation: https://en.wikipedia.org/api/rest_v1/#/Page%20content
-    def random_article(good_article: false)
-      if good_article
-        random_good_article
+    def random_article(type: :any)
+      case type
+      when :good
+        random_x_article("Good_articles")
+      when :featured
+        random_x_article("Featured_articles")
       else
         summary_url = "https://en.wikipedia.org/api/rest_v1/page/random/summary"
         JSON.parse(URI.open(summary_url).read)
       end
     end
 
-    def random_good_article
-      redirect_url = URI("https://randomincategory.toolforge.org/Good_articles")
+    def random_x_article(query_string)
+      puts "RANDOM #{query_string.upcase}"
+      redirect_url = URI("https://randomincategory.toolforge.org/#{query_string}")
       redirect = Net::HTTP.get_response(redirect_url)
       article_url = redirect["location"]
       title = article_url.split("/").last

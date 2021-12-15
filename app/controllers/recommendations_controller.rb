@@ -7,14 +7,18 @@ class RecommendationsController < ApplicationController
   def show
     if preferences_submitted?
       @recommendation = ::WikiStumble::Recommendation.new(category_scores,
-                                                          good_article: false)
+                                                          article_type: session[:article_type])
       store_recommendation_categories(@recommendation)
       @user_category_scores = category_scores
     end
+    @starter_categories = session[:starter_categories_string] ||
+                          ::WikiStumble::Categories::DEFAULT_STRING
+    @article_type = session[:article_type]&.to_sym || :any
   end
 
   def update
     store_starter_categories
+    store_article_type
     update_category_scores
     redirect_to recommendations_show_path, status: "303"
   end
@@ -41,9 +45,13 @@ class RecommendationsController < ApplicationController
                     .values.first.dig("articletopic", "score", "prediction")
   end
 
+  def store_article_type
+    session[:article_type] = params[:article_type]
+  end
+
   def store_starter_categories
-    cat = ::WikiStumble::Categories.from_string(params[:categories])
-    session[:starter_categories] = cat
+    session[:starter_categories_string] = params[:categories]
+    session[:starter_categories] = ::WikiStumble::Categories.from_string(params[:categories])
   end
 
   def update_category_scores
