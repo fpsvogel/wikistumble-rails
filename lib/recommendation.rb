@@ -1,18 +1,24 @@
 require "open-uri"
 require "json"
-require "addressable/uri"
 
 module WikiStumble
   class Recommendation
     ARTICLE_COUNT = 1
 
-    attr_reader :summary, :categories, :related_articles
+    attr_reader :title, :description, :extract, :url, :thumbnail, :categories,
+                :related_articles, :summary # RM
 
     def initialize(category_scores, good_article: false, article_count: ARTICLE_COUNT)
       # TODO implement category_scores
       @good_article = good_article
       @article_count = article_count
-      @summary, @categories = recommended_summary_and_categories
+      summary, @categories = recommended_summary_and_categories
+      @title = summary["title"]
+      @description = summary["description"]
+      @extract = summary["extract"]
+      @url = summary.dig("content_urls", "desktop", "page")
+      @thumbnail = summary.dig("thumbnail", "source")
+      @summary = summary # RM
       @related_articles = related_articles(@summary)
     end
 

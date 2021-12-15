@@ -8,8 +8,8 @@ class RecommendationsController < ApplicationController
     recommendation = ::WikiStumble::Recommendation.new(category_scores,
                                                        good_article: false)
     store_recommendation_categories(recommendation)
-    @article = recommendation.summary
-    @categories = category_scores
+    @recommendation = recommendation
+    @user_category_scores = category_scores
   end
 
   def update

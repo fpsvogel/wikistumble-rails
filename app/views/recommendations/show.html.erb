@@ -1,4 +1,4 @@
-<h1>Wiki Stumble</h1>
+<h1 style="margin:0 0 1rem 0">Wiki Stumble</h1>
 
 <%= form_with url: recommendations_update_path, method: :patch do |f| %>
   <%= f.label :categories, "What categories are you interested in? From #{link_to "this list.", "https://www.mediawiki.org/wiki/ORES/Articletopic"}".html_safe %>
@@ -21,5 +21,9 @@
   </fieldset>
 <% end %>
 
-<p><%= @article %></p>
-<p><%= @categories %></p>
+<h2 style="margin-bottom:1rem"><%= @recommendation.title %></h2>
+<p><em><%= @recommendation.description %></em></p>
+<p><%= link_to @recommendation.url, @recommendation.url, target: "_blank" %></p>
+<p><%= @recommendation.extract %></p>
+<p><%= image_tag @recommendation.thumbnail %></p>
+<p><strong>Your category scores:</strong> <%= @user_category_scores %></p>
