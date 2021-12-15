@@ -9,7 +9,8 @@ class RecommendationsController < ApplicationController
       @recommendation = ::WikiStumble::Recommendation.new(category_scores,
                                                           article_type: session[:article_type])
       store_recommendation_categories(@recommendation)
-      @user_category_scores = category_scores
+      @user_category_scores = category_scores.sort_by { |_category, score| -score }
+                                             .to_h
     end
     @starter_categories = session[:starter_categories_string] ||
                           ::WikiStumble::Categories::DEFAULT_STRING
@@ -40,9 +41,7 @@ class RecommendationsController < ApplicationController
   end
 
   def store_recommendation_categories(recommendation)
-    session[:recommendation_categories] =
-      recommendation.categories.dig("enwiki", "scores")
-                    .values.first.dig("articletopic", "score", "prediction")
+    session[:recommendation_categories] = recommendation.simple_categories
   end
 
   def store_article_type

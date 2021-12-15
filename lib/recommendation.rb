@@ -3,16 +3,25 @@ require "json"
 
 module WikiStumble
   class Recommendation
-    ARTICLE_COUNT = 1
+    # TODO: instead of querying for this many articles and then finding the best
+    # match to the user's category scores, it would be faster to query *up to*
+    # this many but break as soon as an acceptably good match is found. this
+    # would also prevent the user from seeing articles of the same category
+    # every time (their top-scored category). but what is an "acceptably good
+    # match"? it seems it would depend on how far along the user is in their
+    # scoring.
+    ARTICLE_CANDIDATES = 10
 
     attr_reader :title, :description, :extract, :url, :thumbnail, :categories,
                 :article_type, :related_articles
 
-    def initialize(category_scores, article_type: :any, article_count: ARTICLE_COUNT)
-      # TODO implement category_scores
+    def initialize(user_category_scores,
+                   article_type: :any,
+                   article_candidates: ARTICLE_CANDIDATES)
       @article_type = article_type.to_sym
-      @article_count = article_count
-      summary, @categories = recommended_summary_and_categories
+      @article_candidates_count = article_candidates
+      summary, @categories, _match_score =
+        recommended_summary_and_categories(user_category_scores)
       @title = summary["title"]
       @description = summary["description"]
       @extract = summary["extract"]
@@ -21,17 +30,48 @@ module WikiStumble
       @related_articles = related_articles(summary)
     end
 
+    def simple_categories
+      from_categories_response(categories, "prediction")
+    end
+
     private
 
-    def recommended_summary_and_categories
-      articles = (1..@article_count).map do
+    def recommended_summary_and_categories(user_category_scores)
+      candidates = (1..@article_candidates_count).map do
         article = random_article(type: @article_type)
         article_id = article["revision"]
         categories = categories_for_id(article_id)
         [article, categories]
       end
-      closest_match = articles[0]
-      closest_match
+      best_match(candidates, user_category_scores)
+    end
+
+    def best_match(candidates, user_category_scores)
+      candidates.map do |article, candidate_categories|
+        score = match_score(candidate_categories, user_category_scores)
+        [article, candidate_categories, score]
+      end.max_by(&:last)
+    end
+
+    def match_score(categories_response, category_scores)
+      top_categories = categories_prediction(categories_response)
+      probabilities = categories_probability(categories_response)
+      top_categories.map do |category|
+        probabilities[category] * (category_scores[category] || 0)
+      end.sum
+    end
+
+    def categories_prediction(categories_response)
+      from_categories_response(categories_response, "prediction")
+    end
+
+    def categories_probability(categories_response)
+      from_categories_response(categories_response, "probability")
+    end
+
+    def from_categories_response(categories_response, key)
+      categories_response.dig("enwiki", "scores")
+                         .values.first.dig("articletopic", "score", key)
     end
 
     def categories_for_id(article_id)
