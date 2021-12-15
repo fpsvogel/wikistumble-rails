@@ -3,24 +3,22 @@ require "json"
 
 module WikiStumble
   class Recommendation
-    # TODO: instead of querying for this many articles and then finding the best
-    # match to the user's category scores, it would be faster to query *up to*
-    # this many but break as soon as an acceptably good match is found. this
-    # would also prevent the user from seeing articles of the same category
-    # every time (their top-scored category). but what is an "acceptably good
-    # match"? it seems it would depend on how far along the user is in their
-    # scoring.
-    ARTICLE_CANDIDATES = 10
+    MAX_ARTICLE_QUERIES = 10
+    CANDIDATE_CHANCE = 2 # multiplied by the ratio (candidate_score / top user
+    # category score), to get a probability that a candidate will be selected
+    # early, before max_article_queries is reached.
 
     attr_reader :title, :description, :extract, :url, :thumbnail, :categories,
                 :article_type, :related_articles
 
     def initialize(user_category_scores,
                    article_type: :any,
-                   article_candidates: ARTICLE_CANDIDATES)
+                   max_article_queries: MAX_ARTICLE_QUERIES,
+                   candidate_chance: CANDIDATE_CHANCE)
       @article_type = article_type.to_sym
-      @article_candidates_count = article_candidates
-      summary, @categories, _match_score =
+      @max_article_queries = max_article_queries
+      @candidate_chance = candidate_chance
+      summary, @categories, _candidate_score =
         recommended_summary_and_categories(user_category_scores)
       @title = summary["title"]
       @description = summary["description"]
@@ -37,28 +35,34 @@ module WikiStumble
     private
 
     def recommended_summary_and_categories(user_category_scores)
-      candidates = (1..@article_candidates_count).map do
+      candidates = []
+      (1..@max_article_queries).each do |query_n|
         article = random_article(type: @article_type)
         article_id = article["revision"]
-        categories = categories_for_id(article_id)
-        [article, categories]
+        article_categories = categories_for_id(article_id)
+        score = candidate_score(article_categories, user_category_scores)
+        candidates << [article, article_categories, score]
+        if good_enough_candidate?(score, user_category_scores)
+          # Rails.logger.info "GOOD ENOUGH after #{query_n} queries, score #{score}"
+          return candidates.last
+        end
       end
-      best_match(candidates, user_category_scores)
+      candidates.max_by(&:last)
     end
 
-    def best_match(candidates, user_category_scores)
-      candidates.map do |article, candidate_categories|
-        score = match_score(candidate_categories, user_category_scores)
-        [article, candidate_categories, score]
-      end.max_by(&:last)
-    end
-
-    def match_score(categories_response, category_scores)
+    def candidate_score(categories_response, category_scores)
       top_categories = categories_prediction(categories_response)
       probabilities = categories_probability(categories_response)
       top_categories.map do |category|
         probabilities[category] * (category_scores[category] || 0)
       end.sum
+    end
+
+    def good_enough_candidate?(score, user_category_scores)
+      return false if score < 0
+      top_category_score = user_category_scores.max_by { |_category, score| score }.last
+      probability = @candidate_chance * (score / top_category_score)
+      probability > 1 || rand < probability
     end
 
     def categories_prediction(categories_response)
@@ -96,7 +100,6 @@ module WikiStumble
     end
 
     def random_x_article(query_string)
-      puts "RANDOM #{query_string.upcase}"
       redirect_url = URI("https://randomincategory.toolforge.org/#{query_string}")
       redirect = Net::HTTP.get_response(redirect_url)
       article_url = redirect["location"]
@@ -106,8 +109,10 @@ module WikiStumble
     end
 
     def related_articles(summary)
-      title = summary["title"]
-      JSON.parse(URI.open("https://en.wikipedia.org/api/rest_v1/page/related/#{escape(title)}").read)
+      JSON.parse(URI.open("https://en.wikipedia.org/api/rest_v1/page/related/#{escape(@title)}").read)
+    rescue OpenURI::HTTPError
+      Rails.logger.error "Unable to get related articles for \"#{@title}\" #{@url}"
+      nil
     end
 
     def escape(title)
