@@ -2,7 +2,7 @@ module WikiStumble
   class Categories
     class << self
       def from_string(string)
-        all.grep(/#{string}/i)
+        all.grep(/#{Regexp.escape(string)}/i)
       end
 
       def all

@@ -1,11 +1,24 @@
 <h1>Wiki Stumble</h1>
 
 <%= form_with url: recommendations_update_path, method: :patch do |f| %>
-  <%= f.label :categories, "What categories are you interested in? From #{link_to "this list", "https://www.mediawiki.org/wiki/ORES/Articletopic"}" %>
-  <%= f.text_area :categories,
-                  value: "Media, STEM*",
-                  class: "margin-top-small" %>
-  <%= f.submit "Stumble", class: "margin-top paper-btn" %>
+  <%= f.label :categories, "What categories are you interested in? From #{link_to "this list.", "https://www.mediawiki.org/wiki/ORES/Articletopic"}".html_safe %>
+  <%= f.text_field :categories,
+                    value: "Media, STEM*",
+                    class: "margin-top-small" %>
+
+  <%= f.submit "Stumble", class: "paper-btn margin-top" %>
+
+  <fieldset class="form-group margin-top">
+    <legend>Did you like this article?</legend>
+    <%= f.label :liked_1, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+      <%= f.radio_button :liked, 1 %>
+      <span>👍</span>
+    <% end %>
+    <%= f.label :"liked_-1", class: "paper-radio", style: "display:inline-block" do %>
+      <%= f.radio_button :liked, -1 %>
+      <span>👎</span>
+    <% end %>
+  </fieldset>
 <% end %>
 
 <p><%= @article %></p>

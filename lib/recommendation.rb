@@ -4,10 +4,12 @@ require "addressable/uri"
 
 module WikiStumble
   class Recommendation
+    ARTICLE_COUNT = 1
+
     attr_reader :summary, :categories, :related_articles
 
-    def initialize(categories, good_article: false, article_count: 1)
-      # TODO implement categories
+    def initialize(category_scores, good_article: false, article_count: ARTICLE_COUNT)
+      # TODO implement category_scores
       @good_article = good_article
       @article_count = article_count
       @summary, @categories = recommended_summary_and_categories
