@@ -1,0 +1,15 @@
+<fieldset class="form-group margin-top margin-bottom-none">
+  <legend>Article type:</legend>
+  <%= form.label :article_type_any, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+    <%= form.radio_button :article_type, "any", checked: (article_type == :any) %>
+    <span>Any</span>
+  <% end %>
+  <%= form.label :article_type_good, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+    <%= form.radio_button :article_type, "good", checked: (article_type == :good) %>
+    <span>Good</span>
+  <% end %>
+  <%= form.label :article_type_featured, class: "paper-radio", style: "display:inline-block" do %>
+    <%= form.radio_button :article_type, "featured", checked: (article_type == :featured) %>
+    <span>Featured</span>
+  <% end %>
+</fieldset>

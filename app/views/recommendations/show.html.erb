@@ -1,49 +1,17 @@
 <h1 style="margin:0 0 1rem 0">Wiki Stumble</h1>
 
 <%= form_with url: recommendations_update_path, method: :patch do |f| %>
-  <%= f.label :categories, "What categories are you interested in? From #{link_to "this list.", "https://www.mediawiki.org/wiki/ORES/Articletopic", target: "_blank"}".html_safe %>
-  <%= f.text_field :categories,
-                    value: @starter_categories,
-                    class: "margin-top-small" %>
-
-  <fieldset class="form-group margin-top margin-bottom-none">
-    <legend>Article type:</legend>
-    <%= f.label :article_type_any, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
-      <%= f.radio_button :article_type, "any", checked: (@article_type == :any) %>
-      <span>Any</span>
-    <% end %>
-    <%= f.label :article_type_good, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
-      <%= f.radio_button :article_type, "good", checked: (@article_type == :good) %>
-      <span>Good</span>
-    <% end %>
-    <%= f.label :article_type_featured, class: "paper-radio", style: "display:inline-block" do %>
-      <%= f.radio_button :article_type, "featured", checked: (@article_type == :featured) %>
-      <span>Featured</span>
-    <% end %>
-  </fieldset>
+  <%= render 'recommendations/starter_categories', form: f, starter_categories: @starter_categories %>
+  <%= render 'recommendations/article_type', form: f, article_type: @article_type %>
 
   <%= f.submit "Next article", class: "paper-btn margin-top" %>
 
   <% unless @recommendation.nil? %>
-    <fieldset class="form-group margin-top-large">
-      <legend>Did you like this article?</legend>
-      <%= f.label :liked_1, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
-        <%= f.radio_button :liked, 1 %>
-        <span>👍</span>
-      <% end %>
-      <%= f.label :"liked_-1", class: "paper-radio", style: "display:inline-block" do %>
-        <%= f.radio_button :liked, -1 %>
-        <span>👎</span>
-      <% end %>
-    </fieldset>
+    <%= render 'recommendations/like_dislike', form: f %>
   <% end %>
 <% end %>
 
 <% unless @recommendation.nil? %>
-  <h2 style="margin-bottom:1rem"><%= @recommendation.title %></h2>
-  <p><em><%= @recommendation.description %></em></p>
-  <p><%= link_to @recommendation.url, @recommendation.url, target: "_blank" %></p>
-  <p><%= @recommendation.extract %></p>
-  <p><%= image_tag @recommendation.thumbnail %></p>
-  <p><strong>Your category scores:</strong> <%= @user_category_scores %></p>
+  <%= render 'recommendations/recommendation', recommendation: @recommendation %>
+  <%= render 'recommendations/category_scores', category_scores: @user_category_scores %>
 <% end %>

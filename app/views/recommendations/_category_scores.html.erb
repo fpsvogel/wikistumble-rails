@@ -1,0 +1,17 @@
+<h4>Your category scores:</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% category_scores.each do |category, score| %>
+      <tr>
+        <td><%= category %></td>
+        <td><%= score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

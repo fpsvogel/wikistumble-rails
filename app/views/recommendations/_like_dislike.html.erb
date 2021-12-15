@@ -1,0 +1,11 @@
+<fieldset class="form-group margin-top-large">
+  <legend>Did you like this article?</legend>
+  <%= form.label :liked_1, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+    <%= form.radio_button :liked, 1 %>
+    <span>👍</span>
+  <% end %>
+  <%= form.label :"liked_-1", class: "paper-radio", style: "display:inline-block" do %>
+    <%= form.radio_button :liked, -1 %>
+    <span>👎</span>
+  <% end %>
+</fieldset>

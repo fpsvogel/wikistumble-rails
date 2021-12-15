@@ -49,8 +49,9 @@ class RecommendationsController < ApplicationController
   end
 
   def store_starter_categories
-    session[:starter_categories_string] = params[:categories]
-    session[:starter_categories] = ::WikiStumble::Categories.from_string(params[:categories])
+    session[:starter_categories_string] = params[:starter_categories]
+    session[:starter_categories] =
+      ::WikiStumble::Categories.from_string(params[:starter_categories])
   end
 
   def update_category_scores

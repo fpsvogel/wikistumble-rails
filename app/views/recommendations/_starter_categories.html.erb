@@ -1,0 +1,5 @@
+<%= form.label :starter_categories, "What categories are you interested in? From #{link_to "this list.", "https://www.mediawiki.org/wiki/ORES/Articletopic", target: "_blank"}".html_safe %>
+<%= form.text_field :starter_categories,
+                  value: starter_categories,
+                  class: "margin-top-small",
+                  style: "width=100%" %>

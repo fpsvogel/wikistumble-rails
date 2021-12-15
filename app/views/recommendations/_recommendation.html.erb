@@ -1,0 +1,7 @@
+<h2 style="margin-bottom:1rem"><%= recommendation.title %></h2>
+<p><em><%= recommendation.description %></em></p>
+<p><%= link_to recommendation.url, recommendation.url, target: "_blank" %></p>
+<p><%= recommendation.extract %></p>
+<% unless recommendation.thumbnail.nil? %>
+  <p><%= image_tag recommendation.thumbnail %></p>
+<% end %>
