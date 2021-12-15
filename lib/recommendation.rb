@@ -8,8 +8,8 @@ module WikiStumble
     # category score), to get a probability that a candidate will be selected
     # early, before max_article_queries is reached.
 
-    attr_reader :title, :description, :extract, :url, :thumbnail, :categories,
-                :article_type, :related_articles
+    attr_reader :title, :description, :extract, :url, :thumbnail_source,
+                :categories, :article_type, :related_articles
 
     def initialize(user_category_scores,
                    article_type: :any,
@@ -24,7 +24,7 @@ module WikiStumble
       @description = summary["description"]
       @extract = summary["extract"]
       @url = summary.dig("content_urls", "desktop", "page")
-      @thumbnail = summary.dig("thumbnail", "source")
+      @thumbnail_source = summary.dig("thumbnail", "source")
       @related_articles = related_articles(summary)
     end
 
@@ -118,9 +118,5 @@ module WikiStumble
     def escape(title)
       URI::DEFAULT_PARSER.escape(title)
     end
-
-    # RM probably unneeded:
-    # get all categories of an article: "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=categories&titles=Google&clshow=!hidden&cllimit=100"
-    # top-level categories: https://en.wikipedia.org/wiki/Category:Main_topic_classifications
   end
 end

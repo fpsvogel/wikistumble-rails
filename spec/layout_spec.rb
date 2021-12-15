@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Site layout", type: :system do
-  describe "layout" do
+  describe "home page" do
     it "has a footer" do
-      visit root_path
+      visit recommendations_show_path
       expect(page).to have_selector('#footer')
     end
   end
