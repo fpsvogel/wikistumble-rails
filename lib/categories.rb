@@ -1,8 +1,11 @@
 module WikiStumble
   class Categories
+    DEFAULT_STRING = "Media, STEM*"
+
     class << self
       def from_string(string)
-        all.grep(/#{Regexp.escape(string)}/i)
+        string.split(/\s*,\s*/)
+              .flat_map { |category| all.grep(/#{Regexp.escape(category)}/i) }
       end
 
       def all

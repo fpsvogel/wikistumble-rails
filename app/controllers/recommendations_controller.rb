@@ -5,11 +5,12 @@ class RecommendationsController < ApplicationController
   STARTER_CATEGORY_SCORE = 10
 
   def show
-    recommendation = ::WikiStumble::Recommendation.new(category_scores,
-                                                       good_article: false)
-    store_recommendation_categories(recommendation)
-    @recommendation = recommendation
-    @user_category_scores = category_scores
+    if preferences_submitted?
+      @recommendation = ::WikiStumble::Recommendation.new(category_scores,
+                                                          good_article: false)
+      store_recommendation_categories(@recommendation)
+      @user_category_scores = category_scores
+    end
   end
 
   def update
@@ -20,9 +21,12 @@ class RecommendationsController < ApplicationController
 
   private
 
+  def preferences_submitted?
+    session.has_key?(:starter_categories)
+  end
+
   def category_scores
     session[:category_scores] ||= {}
-    session[:starter_categories] ||= []
     starter_scores = session[:starter_categories]
       .map { |category| [category, STARTER_CATEGORY_SCORE] }.to_h
     session[:category_scores]
@@ -38,15 +42,14 @@ class RecommendationsController < ApplicationController
   end
 
   def store_starter_categories
-    session[:starter_categories] =
-      params[:categories].split(/\s*,\s*/)
-                         .flat_map { |category| ::WikiStumble::Categories.from_string(category) }
+    cat = ::WikiStumble::Categories.from_string(params[:categories])
+    session[:starter_categories] = cat
   end
 
   def update_category_scores
-    liked_increment = params[:liked].to_i || (return false)
+    liked_increment = Integer(params[:liked], exception: false) || (return false)
     session[:category_scores] ||= {}
-    session[:recommendation_categories].each do |category|
+    (session[:recommendation_categories] || []).each do |category|
       session[:category_scores][category] =
       session[:category_scores].fetch(category, 0) + liked_increment
     end

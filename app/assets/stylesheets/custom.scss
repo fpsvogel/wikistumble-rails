@@ -1,3 +1,18 @@
 html.dark body {
   background: #41403e;
 }
+
+// keep the footer at the bottom of the page.
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  margin-top: auto;
+}

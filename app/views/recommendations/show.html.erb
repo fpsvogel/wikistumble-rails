@@ -6,24 +6,28 @@
                     value: "Media, STEM*",
                     class: "margin-top-small" %>
 
-  <%= f.submit "Stumble", class: "paper-btn margin-top" %>
+  <%= f.submit "Next article", class: "paper-btn margin-top" %>
 
-  <fieldset class="form-group margin-top">
-    <legend>Did you like this article?</legend>
-    <%= f.label :liked_1, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
-      <%= f.radio_button :liked, 1 %>
-      <span>👍</span>
-    <% end %>
-    <%= f.label :"liked_-1", class: "paper-radio", style: "display:inline-block" do %>
-      <%= f.radio_button :liked, -1 %>
-      <span>👎</span>
-    <% end %>
-  </fieldset>
+  <% unless @recommendation.nil? %>
+    <fieldset class="form-group margin-top">
+      <legend>Did you like this article?</legend>
+      <%= f.label :liked_1, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+        <%= f.radio_button :liked, 1 %>
+        <span>👍</span>
+      <% end %>
+      <%= f.label :"liked_-1", class: "paper-radio", style: "display:inline-block" do %>
+        <%= f.radio_button :liked, -1 %>
+        <span>👎</span>
+      <% end %>
+    </fieldset>
+  <% end %>
 <% end %>
 
-<h2 style="margin-bottom:1rem"><%= @recommendation.title %></h2>
-<p><em><%= @recommendation.description %></em></p>
-<p><%= link_to @recommendation.url, @recommendation.url, target: "_blank" %></p>
-<p><%= @recommendation.extract %></p>
-<p><%= image_tag @recommendation.thumbnail %></p>
-<p><strong>Your category scores:</strong> <%= @user_category_scores %></p>
+<% unless @recommendation.nil? %>
+  <h2 style="margin-bottom:1rem"><%= @recommendation.title %></h2>
+  <p><em><%= @recommendation.description %></em></p>
+  <p><%= link_to @recommendation.url, @recommendation.url, target: "_blank" %></p>
+  <p><%= @recommendation.extract %></p>
+  <p><%= image_tag @recommendation.thumbnail %></p>
+  <p><strong>Your category scores:</strong> <%= @user_category_scores %></p>
+<% end %>
