@@ -1,2 +1,12 @@
-<h1>Recommendations#show</h1>
-<p>Hello, world!</p>
+<h1>Wiki Stumble</h1>
+
+<%= form_with url: recommendations_update_path, method: :patch do |f| %>
+  <%= f.label :categories, "What categories are you interested in? From #{link_to "this list", "https://www.mediawiki.org/wiki/ORES/Articletopic"}" %>
+  <%= f.text_area :categories,
+                  value: "Media, STEM*",
+                  class: "margin-top-small" %>
+  <%= f.submit "Stumble", class: "margin-top paper-btn" %>
+<% end %>
+
+<p><%= @article %></p>
+<p><%= @categories %></p>
