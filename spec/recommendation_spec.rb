@@ -58,33 +58,59 @@ RSpec.describe "Recommendation page", type: :system do
       article_title = find('#recommendation h2').text
       expect(article_type(article_title)).to eq :featured
     end
-
-    private
-
-    def article_type(article_title)
-      badges_url =
-        "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json" \
-        "&sites=enwiki&titles=#{URI::DEFAULT_PARSER.escape(article_title)}" \
-        "&props=sitelinks&sitefilter=enwiki&formatversion=2"
-      response = JSON.parse(URI.open(badges_url).read)
-      badges = response["entities"].values.first.dig("sitelinks", "enwiki", "badges")
-      if badges.include? "Q17437796"
-        :featured
-      elsif badges.include? "Q17437798"
-        :good
-      else
-        :any
-      end
-    end
   end
 
   describe "recommended article" do
+    it "is shown according to the user's category preferences" do
+      visit recommendations_show_path
+      categories_preference = "Geography"
+      5.times do # until a short enough recommendation that doesn't fill the cookies.
+        find('#starter_categories').set(categories_preference)
+        find('input[type="submit"]').click
+        break if find('#recommendation')
+      end
+      expect(page).to have_selector("#recommendation")
+      article_title = find('#recommendation h2').text
+      article_categories = article_categories(article_title)
+      expect(article_categories.grep(/#{categories_preference}/).length).to be > 0
+    end
+
     it "is the same after a page refresh" do
       visit recommendations_show_path
       find('input[type="submit"]').click
       original_article_title = find('h2').text
+      refresh
       refreshed_article_title = find('h2').text
       expect(refreshed_article_title).to eq original_article_title
     end
+  end
+
+  private
+
+  def article_type(article_title)
+    badges_url =
+      "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json" \
+      "&sites=enwiki&titles=#{URI::DEFAULT_PARSER.escape(article_title)}" \
+      "&props=sitelinks&sitefilter=enwiki&formatversion=2"
+    response = JSON.parse(URI.open(badges_url).read)
+    badges = response["entities"].values.first.dig("sitelinks", "enwiki", "badges")
+    if badges.include? "Q17437796"
+      :featured
+    elsif badges.include? "Q17437798"
+      :good
+    else
+      :any
+    end
+  end
+
+  def article_categories(article_title)
+    summary_url = "https://en.wikipedia.org/api/rest_v1/page/summary/#{URI::DEFAULT_PARSER.escape(article_title)}"
+    summary = JSON.parse(URI.open(summary_url).read)
+    revision_id = summary["revision"]
+    categories_url =
+      "https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=#{revision_id}"
+    categories = JSON.parse(URI.open(categories_url).read)
+    categories.dig("enwiki", "scores")
+              .values.first.dig("articletopic", "score", "prediction")
   end
 end

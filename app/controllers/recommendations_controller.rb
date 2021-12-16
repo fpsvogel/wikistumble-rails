@@ -82,14 +82,7 @@ class RecommendationsController < ApplicationController
       ::WikiStumble::Recommendation.new(category_scores,
                                         article_type: session[:article_type])
     store_recommendation_categories(recommendation)
-    session[:recommendation] =
-      {
-        title: recommendation.title,
-        description: recommendation.description,
-        url: recommendation.url,
-        extract: recommendation.extract,
-        thumbnail_source: recommendation.thumbnail_source
-      }
+    session[:recommendation] = recommendation.to_h
   end
 
   def store_recommendation_categories(recommendation)

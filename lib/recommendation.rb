@@ -25,11 +25,21 @@ module WikiStumble
       @extract = summary["extract"]
       @url = summary.dig("content_urls", "desktop", "page")
       @thumbnail_source = summary.dig("thumbnail", "source")
-      @related_articles = related_articles(summary)
+      # @related_articles = related_articles(summary)
     end
 
     def simple_categories
       from_categories_response(categories, "prediction")
+    end
+
+    def to_h
+      {
+        title: title,
+        description: description,
+        url: url,
+        extract: extract,
+        thumbnail_source: thumbnail_source
+      }
     end
 
     private
@@ -38,8 +48,8 @@ module WikiStumble
       candidates = []
       (1..@max_article_queries).each do |query_n|
         article = random_article(type: @article_type)
-        article_id = article["revision"]
-        article_categories = categories_for_id(article_id)
+        revision_id = article["revision"]
+        article_categories = categories_for_id(revision_id)
         score = candidate_score(article_categories, user_category_scores)
         candidates << [article, article_categories, score]
         if good_enough_candidate?(score, user_category_scores)
@@ -78,11 +88,11 @@ module WikiStumble
                          .values.first.dig("articletopic", "score", key)
     end
 
-    def categories_for_id(article_id)
+    def categories_for_id(revision_id)
       # from https://stackoverflow.com/a/65801715/4158773
       # list of topics: https://www.mediawiki.org/wiki/ORES/Articletopic
       categories_url =
-        "https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=#{article_id}"
+        "https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=#{revision_id}"
       JSON.parse(URI.open(categories_url).read)
     end
 

@@ -1,4 +1,4 @@
-<div id="recommendation" class="paper container">
+<div id="recommendation" data-revisionid=<%= recommendation["revision_id"] %> class="paper container">
   <h2 style="margin:0 0 1rem 0"><%= recommendation["title"] %></h2>
   <p><em><%= recommendation["description"] %></em></p>
   <p><%= link_to recommendation["url"], recommendation["url"], target: "_blank" %></p>
