@@ -70,6 +70,7 @@ module WikiStumble
 
     def good_enough_candidate?(score, user_category_scores)
       return false if score < 0
+      return true if user_category_scores.empty?
       top_category_score = user_category_scores.max_by { |_category, score| score }.last
       probability = @candidate_chance * (score / top_category_score)
       probability > 1 || rand < probability

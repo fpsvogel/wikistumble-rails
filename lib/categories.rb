@@ -1,6 +1,6 @@
 module WikiStumble
   class Categories
-    DEFAULT_STRING = "Biography, Visual arts*, History, STEM"
+    DEFAULT_STRING = "Biography, Visual arts*, History and Society.History"
 
     class << self
       def from_string(string)

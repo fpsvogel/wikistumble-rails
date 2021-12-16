@@ -28,6 +28,13 @@ RSpec.describe "Recommendation page", type: :system do
       expect(page).to have_selector('div.alert')
       expect(page).not_to have_selector('#recommendation')
     end
+
+    it "can be blank" do
+      visit recommendations_show_path
+      find('#starter_categories').set("")
+      find('input[type="submit"]').click
+      expect(page).to have_selector('#recommendation')
+    end
   end
 
   describe "article type selector" do
