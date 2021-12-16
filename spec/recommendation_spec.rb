@@ -12,10 +12,10 @@ RSpec.describe "Recommendation page", type: :system do
 
     it "continues to be shown in shorthand style after form submission" do
       visit recommendations_show_path
-      # a top-level category that is shorthand for its many sub-categories.
+      # a top-level category, shorthand for its many sub-categories.
       categories_text_before_submit = "STEM"
       find('#starter_categories').set(categories_text_before_submit)
-      find('input[type="submit"]').click
+      submit
       categories_text_after_submit = find('#starter_categories').value
       expect(categories_text_after_submit).to eq categories_text_before_submit
     end
@@ -24,7 +24,7 @@ RSpec.describe "Recommendation page", type: :system do
       visit recommendations_show_path
       all_top_level_categories = "Culture, Geography, History and Society, STEM"
       find('#starter_categories').set(all_top_level_categories)
-      find('input[type="submit"]').click
+      submit
       expect(page).to have_selector('div.alert')
       expect(page).not_to have_selector('#recommendation')
     end
@@ -32,7 +32,7 @@ RSpec.describe "Recommendation page", type: :system do
     it "can be blank" do
       visit recommendations_show_path
       find('#starter_categories').set("")
-      find('input[type="submit"]').click
+      submit
       expect(page).to have_selector('#recommendation')
     end
   end
@@ -46,23 +46,21 @@ RSpec.describe "Recommendation page", type: :system do
     it "remembers the selected option after form submission" do
       visit recommendations_show_path
       choose 'article_type_good'
-      find('input[type="submit"]').click
+      submit
       expect(page).to have_checked_field('article_type_good')
     end
 
     it "shows a good article when 'Good' is selected" do
       visit recommendations_show_path
       choose 'article_type_good'
-      find('input[type="submit"]').click
-      article_title = find('#recommendation h2').text
+      submit
       expect(article_type(article_title)).to eq :good
     end
 
     it "shows a featured article when 'Featured' is selected" do
       visit recommendations_show_path
       choose 'article_type_featured'
-      find('input[type="submit"]').click
-      article_title = find('#recommendation h2').text
+      submit
       expect(article_type(article_title)).to eq :featured
     end
   end
@@ -73,26 +71,33 @@ RSpec.describe "Recommendation page", type: :system do
       categories_preference = "Geography"
       5.times do # until a short enough recommendation that doesn't fill the cookies.
         find('#starter_categories').set(categories_preference)
-        find('input[type="submit"]').click
+        submit
         break if find('#recommendation')
       end
       expect(page).to have_selector("#recommendation")
-      article_title = find('#recommendation h2').text
       article_categories = article_categories(article_title)
       expect(article_categories.grep(/#{categories_preference}/).length).to be > 0
     end
 
     it "is the same after a page refresh" do
       visit recommendations_show_path
-      find('input[type="submit"]').click
-      original_article_title = find('h2').text
+      submit
+      original_article_title = article_title
       refresh
-      refreshed_article_title = find('h2').text
+      refreshed_article_title = article_title
       expect(refreshed_article_title).to eq original_article_title
     end
   end
 
   private
+
+  def submit
+    find('input[type="submit"]').click
+  end
+
+  def article_title
+    find('#recommendation h2').text
+  end
 
   def article_type(article_title)
     badges_url =
