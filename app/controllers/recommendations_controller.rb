@@ -3,6 +3,7 @@ require "categories"
 
 class RecommendationsController < ApplicationController
   STARTER_CATEGORY_SCORE = 10
+  MAX_SESSION_BYTESIZE = 1850
 
   def show
     @user_category_scores = category_scores.sort_by { |_category, score| -score }
@@ -18,10 +19,30 @@ class RecommendationsController < ApplicationController
     store_article_type
     add_like_or_dislike_into_category_scores
     get_and_store_recommendation
-    redirect_to recommendations_show_path, status: "303"
+    if session_cookie_full?
+      session[:recommendation] = nil
+      session[:starter_categories] = nil
+      redirect_to recommendations_show_path, status: "303",
+        alert: "You've reached the storage size limit! Soon you'll be able to " \
+               "sign up and use more data. For now, try specifying fewer or " \
+               "more specific categories."
+    else
+      redirect_to recommendations_show_path, status: "303"
+    end
   end
 
   private
+
+  def session_cookie_full?
+    session_data = session[:starter_categories_string].to_s +
+                   session[:starter_categories].to_s +
+                   session[:article_type].to_s +
+                   session[:recommendation].to_s +
+                   session[:recommendation_categories].to_s +
+                   session[:category_scores].to_s
+    Rails.logger.info "SESSION SIZE: #{session_data.bytesize}"
+    session_data.bytesize > MAX_SESSION_BYTESIZE
+  end
 
   def preferences_submitted?
     session.has_key?(:starter_categories)

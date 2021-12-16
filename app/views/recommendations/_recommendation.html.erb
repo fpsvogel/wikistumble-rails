@@ -1,7 +1,9 @@
-<h2 style="margin-bottom:1rem"><%= recommendation["title"] %></h2>
-<p><em><%= recommendation["description"] %></em></p>
-<p><%= link_to recommendation["url"], recommendation["url"], target: "_blank" %></p>
-<p><%= recommendation["extract"] %></p>
-<% unless recommendation["thumbnail_source"].nil? %>
-  <p><%= image_tag recommendation["thumbnail_source"] %></p>
-<% end %>
+<div id="recommendation" class="paper container">
+  <h2 style="margin:0 0 1rem 0"><%= recommendation["title"] %></h2>
+  <p><em><%= recommendation["description"] %></em></p>
+  <p><%= link_to recommendation["url"], recommendation["url"], target: "_blank" %></p>
+  <p><%= recommendation["extract"] %></p>
+  <% unless recommendation["thumbnail_source"].nil? %>
+    <p><%= image_tag recommendation["thumbnail_source"] %></p>
+  <% end %>
+</div>
