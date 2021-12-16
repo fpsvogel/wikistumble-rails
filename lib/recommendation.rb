@@ -43,7 +43,7 @@ module WikiStumble
         score = candidate_score(article_categories, user_category_scores)
         candidates << [article, article_categories, score]
         if good_enough_candidate?(score, user_category_scores)
-          # Rails.logger.info "GOOD ENOUGH after #{query_n} queries, score #{score}"
+          Rails.logger.info "GOOD ENOUGH CANDIDATE after #{query_n} queries, score #{score}"
           return candidates.last
         end
       end

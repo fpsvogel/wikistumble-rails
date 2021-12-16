@@ -1,10 +1,10 @@
 <fieldset class="form-group margin-top margin-bottom-none">
   <legend>Article type:</legend>
-  <%= form.label :article_type_any, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+  <%= form.label :article_type_any, class: "paper-radio margin-right", style: "display:inline-block" do %>
     <%= form.radio_button :article_type, "any", checked: (article_type == :any) %>
-    <span>Any</span>
+    <span>Any (fast)</span>
   <% end %>
-  <%= form.label :article_type_good, class: "paper-radio margin-right-large", style: "display:inline-block" do %>
+  <%= form.label :article_type_good, class: "paper-radio margin-right", style: "display:inline-block" do %>
     <%= form.radio_button :article_type, "good", checked: (article_type == :good) %>
     <span>Good</span>
   <% end %>
