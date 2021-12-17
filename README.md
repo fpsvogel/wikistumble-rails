@@ -4,10 +4,17 @@ Welcome to the [Wiki Stumble](https://wikistumble.herokuapp.com/) codebase. This
 
 ### Table of Contents
 
+- [Why this is on my GitHub portfolio](#why-this-is-on-my-github-portfolio)
 - [Contributing](#contributing)
 - [Requirements](#requirements)
 - [Initial setup](#initial-setup)
 - [License](#license)
+
+## Why this is on my GitHub portfolio
+
+In this app I wrote a comprehensive RSpec test suite for the first time. (My previous experience had been mostly with Minitest.) I also [had to get creative](https://app.asana.com/0/1173460490611336/1201525792008781/f) to work around the limitations of the Wikipedia APIs.
+
+The result is an app that surely can (and will) be improved and expanded, but is nevertheless an original solution to a previously unsolved problem: how to explore Wikipedia without the hit-or-miss results of totally random pages, and without slogging through long topic lists. In Wiki Stumble, the user gets personalized recommendations of articles based on user-selected categories and also based on the user’s reaction (thumbs up or down) to previous recommendations.
 
 ## Contributing
 
