@@ -1,4 +1,3 @@
-require "recommendation"
 require "categories"
 
 class RecommendationsController < ApplicationController
@@ -78,8 +77,7 @@ class RecommendationsController < ApplicationController
   end
 
   def get_and_store_recommendation
-    recommendation =
-      ::WikiStumble::Recommendation.new(category_scores,
+    recommendation = Recommendation.new(category_scores,
                                         article_type: session[:article_type])
     store_recommendation_categories(recommendation)
     session[:recommendation] = recommendation.to_h
