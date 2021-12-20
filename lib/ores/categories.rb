@@ -1,4 +1,4 @@
-module WikiStumble
+module Ores
   class Categories
     DEFAULT_STRING = "Biography, Visual arts*, History and Society.History"
 

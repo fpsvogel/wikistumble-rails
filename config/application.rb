@@ -31,6 +31,13 @@ module Wikistumble
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    extra_load_paths = %w(lib)
+    extra_load_paths.each do |path|
+      config.autoload_paths   << Rails.root.join(path)
+      config.eager_load_paths << Rails.root.join(path)
+    end
+    Rails.autoloaders.main.ignore('lib/tasks', 'lib/assets')
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

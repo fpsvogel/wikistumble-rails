@@ -1,5 +1,3 @@
-require "categories"
-
 class RecommendationsController < ApplicationController
   STARTER_CATEGORY_SCORE = 10
   MAX_SESSION_BYTESIZE = 1850
@@ -8,7 +6,7 @@ class RecommendationsController < ApplicationController
     @user_category_scores = category_scores.sort_by { |_category, score| -score }
                                              .to_h
     @starter_categories = session[:starter_categories_string] ||
-                          ::WikiStumble::Categories::DEFAULT_STRING
+                                  Ores::Categories::DEFAULT_STRING
     @article_type = session[:article_type]&.to_sym || :any
     @recommendation = session[:recommendation]
   end
@@ -63,8 +61,7 @@ class RecommendationsController < ApplicationController
 
   def store_starter_categories
     session[:starter_categories_string] = params[:starter_categories]
-    session[:starter_categories] =
-      ::WikiStumble::Categories.from_string(params[:starter_categories])
+    session[:starter_categories] = Ores::Categories.from_string(params[:starter_categories])
   end
 
   def add_like_or_dislike_into_category_scores
