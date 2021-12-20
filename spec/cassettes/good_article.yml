@@ -1,0 +1,481 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://randomincategory.toolforge.org/Good_articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - randomincategory.toolforge.org
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Server:
+      - nginx/1.14.2
+      Date:
+      - Mon, 20 Dec 2021 14:08:41 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Location:
+      - https://en.wikipedia.org/wiki/Amos Singletary
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31622400
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      Permissions-Policy:
+      - interest-cohort=()
+      Content-Security-Policy-Report-Only:
+      - 'default-src ''self'' ''unsafe-eval'' ''unsafe-inline'' blob: data: filesystem:
+        mediastream: *.toolforge.org wikibooks.org *.wikibooks.org wikidata.org *.wikidata.org
+        wikimedia.org *.wikimedia.org wikinews.org *.wikinews.org wikipedia.org *.wikipedia.org
+        wikiquote.org *.wikiquote.org wikisource.org *.wikisource.org wikiversity.org
+        *.wikiversity.org wikivoyage.org *.wikivoyage.org wiktionary.org *.wiktionary.org
+        *.wmcloud.org *.wmflabs.org wikimediafoundation.org mediawiki.org *.mediawiki.org
+        wss://randomincategory.toolforge.org; report-uri https://csp-report.toolforge.org/collect;'
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 20 Dec 2021 14:08:43 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/summary/Amos%20Singletary
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - Amos_Singletary
+      Cache-Control:
+      - s-maxage=1209600, max-age=0, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Server:
+      - restbase1029
+      Date:
+      - Mon, 20 Dec 2021 14:08:42 GMT
+      Vary:
+      - X-Forwarded-Proto
+      Age:
+      - '0'
+      X-Cache:
+      - cp1075 miss, cp1085 miss
+      X-Cache-Status:
+      - miss
+      Server-Timing:
+      - cache;desc="miss", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 20 Dec 2021 14:08:43 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/summary/Amos_Singletary
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"
+      Cache-Control:
+      - s-maxage=1209600, max-age=300
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Encoding
+      Content-Location:
+      - https://en.wikipedia.org/api/rest_v1/page/summary/Amos_Singletary
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Server:
+      - restbase1018
+      Date:
+      - Sun, 19 Dec 2021 22:24:35 GMT
+      Etag:
+      - W/"1037143073/69b41c10-60f8-11ec-b915-6b9e5e879925"
+      Age:
+      - '56647'
+      X-Cache:
+      - cp1089 hit, cp1085 miss
+      X-Cache-Status:
+      - hit-local
+      Server-Timing:
+      - cache;desc="hit-local", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"standard","title":"Amos Singletary","displaytitle":"Amos Singletary","namespace":{"id":0,"text":""},"wikibase_item":"Q41327170","titles":{"canonical":"Amos_Singletary","normalized":"Amos
+        Singletary","display":"Amos Singletary"},"pageid":55384100,"lang":"en","dir":"ltr","revision":"1037143073","tid":"39467f00-60f8-11ec-ad78-09a87b8a2f1b","timestamp":"2021-08-04T19:18:42Z","description":"American
+        mill operator, lawyer, justice of the peace","description_source":"local","content_urls":{"desktop":{"page":"https://en.wikipedia.org/wiki/Amos_Singletary","revisions":"https://en.wikipedia.org/wiki/Amos_Singletary?action=history","edit":"https://en.wikipedia.org/wiki/Amos_Singletary?action=edit","talk":"https://en.wikipedia.org/wiki/Talk:Amos_Singletary"},"mobile":{"page":"https://en.m.wikipedia.org/wiki/Amos_Singletary","revisions":"https://en.m.wikipedia.org/wiki/Special:History/Amos_Singletary","edit":"https://en.m.wikipedia.org/wiki/Amos_Singletary?action=edit","talk":"https://en.m.wikipedia.org/wiki/Talk:Amos_Singletary"}},"extract":"Amos
+        Singletary was an American gristmill operator and justice of the peace from
+        Sutton, Massachusetts, who served in both houses of the Massachusetts General
+        Court. An Anti-Federalist, he voted against the U.S. Constitution as a delegate
+        to the Massachusetts Ratifying Convention. He was angered by perceived Federalist
+        arrogance surrounding the adoption of the Constitution and thought that it
+        provided too much power to the national government. He supported the American
+        Revolution and wanted to limit wealthy Bostonians'' sway over state politics.","extract_html":"<p><b>Amos
+        Singletary</b> was an American gristmill operator and justice of the peace
+        from Sutton, Massachusetts, who served in both houses of the Massachusetts
+        General Court. An Anti-Federalist, he voted against the U.S. Constitution
+        as a delegate to the Massachusetts Ratifying Convention. He was angered by
+        perceived Federalist arrogance surrounding the adoption of the Constitution
+        and thought that it provided too much power to the national government. He
+        supported the American Revolution and wanted to limit wealthy Bostonians''
+        sway over state politics.</p>"}'
+  recorded_at: Mon, 20 Dec 2021 14:08:43 GMT
+- request:
+    method: get
+    uri: https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=1037143073
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Pragma:
+      - no-cache
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - ores1004.eqiad.wmnet
+      Access-Control-Allow-Headers:
+      - X-Wikimedia-Debug
+      Date:
+      - Mon, 20 Dec 2021 14:08:42 GMT
+      Vary:
+      - Accept-Encoding
+      Age:
+      - '0'
+      X-Cache:
+      - cp1085 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "enwiki": {
+            "models": {
+              "articletopic": {
+                "version": "1.3.0"
+              }
+            },
+            "scores": {
+              "1037143073": {
+                "articletopic": {
+                  "score": {
+                    "prediction": [
+                      "Culture.Biography.Biography*",
+                      "Geography.Regions.Americas.North America",
+                      "History and Society.Politics and government"
+                    ],
+                    "probability": {
+                      "Culture.Biography.Biography*": 0.9724589248374617,
+                      "Culture.Biography.Women": 0.0023738767676650574,
+                      "Culture.Food and drink": 0.005966011218856859,
+                      "Culture.Internet culture": 0.002116582605327889,
+                      "Culture.Linguistics": 0.002293982562317221,
+                      "Culture.Literature": 0.004549210445930329,
+                      "Culture.Media.Books": 0.0007085363659699635,
+                      "Culture.Media.Entertainment": 0.0010071260640910384,
+                      "Culture.Media.Films": 0.00066030710735436,
+                      "Culture.Media.Media*": 0.037509069926051304,
+                      "Culture.Media.Music": 0.0015673122583483693,
+                      "Culture.Media.Radio": 0.0010749806110835563,
+                      "Culture.Media.Software": 0.0015557367713798565,
+                      "Culture.Media.Television": 0.0005703021431039527,
+                      "Culture.Media.Video games": 7.795878870157955e-05,
+                      "Culture.Performing arts": 0.001985210021960063,
+                      "Culture.Philosophy and religion": 0.10949468484679986,
+                      "Culture.Sports": 0.0029315192310683342,
+                      "Culture.Visual arts.Architecture": 0.00192978221081516,
+                      "Culture.Visual arts.Comics and Anime": 0.0005196095393038379,
+                      "Culture.Visual arts.Fashion": 0.0010344733897239254,
+                      "Culture.Visual arts.Visual arts*": 0.008572009258018409,
+                      "Geography.Geographical": 0.028831234208670134,
+                      "Geography.Regions.Africa.Africa*": 0.008693170318526889,
+                      "Geography.Regions.Africa.Central Africa": 0.00023172512997328879,
+                      "Geography.Regions.Africa.Eastern Africa": 0.0003525692443002089,
+                      "Geography.Regions.Africa.Northern Africa": 0.0004782611620748492,
+                      "Geography.Regions.Africa.Southern Africa": 0.00029332563293901515,
+                      "Geography.Regions.Africa.Western Africa": 6.736727066346154e-05,
+                      "Geography.Regions.Americas.Central America": 0.003562777940710491,
+                      "Geography.Regions.Americas.North America": 0.9688642356614083,
+                      "Geography.Regions.Americas.South America": 0.0005546010741863832,
+                      "Geography.Regions.Asia.Asia*": 0.00974731027098382,
+                      "Geography.Regions.Asia.Central Asia": 0.00032614973148166297,
+                      "Geography.Regions.Asia.East Asia": 0.0008235785653648628,
+                      "Geography.Regions.Asia.North Asia": 0.0003531829622102787,
+                      "Geography.Regions.Asia.South Asia": 0.0006045709700563393,
+                      "Geography.Regions.Asia.Southeast Asia": 0.000778549466151839,
+                      "Geography.Regions.Asia.West Asia": 0.0015335019807136295,
+                      "Geography.Regions.Europe.Eastern Europe": 0.0008700129198403322,
+                      "Geography.Regions.Europe.Europe*": 0.01469526956257598,
+                      "Geography.Regions.Europe.Northern Europe": 0.011572640708445745,
+                      "Geography.Regions.Europe.Southern Europe": 0.0009545571840357084,
+                      "Geography.Regions.Europe.Western Europe": 0.0015795944904965838,
+                      "Geography.Regions.Oceania": 0.0010849988482370787,
+                      "History and Society.Business and economics": 0.04723218818011491,
+                      "History and Society.Education": 0.02765664218115969,
+                      "History and Society.History": 0.051229473779378615,
+                      "History and Society.Military and warfare": 0.13450219529557833,
+                      "History and Society.Politics and government": 0.5043924933883203,
+                      "History and Society.Society": 0.04627546461718645,
+                      "History and Society.Transportation": 0.0018766828466725294,
+                      "STEM.Biology": 0.0002766181087012628,
+                      "STEM.Chemistry": 0.00043461646405681194,
+                      "STEM.Computing": 0.001643275032010602,
+                      "STEM.Earth and environment": 0.001201352944787208,
+                      "STEM.Engineering": 0.0008960913674689596,
+                      "STEM.Libraries & Information": 0.0029309628669247365,
+                      "STEM.Mathematics": 0.000905634165758423,
+                      "STEM.Medicine & Health": 0.0008273881449056211,
+                      "STEM.Physics": 0.00014953261462562962,
+                      "STEM.STEM*": 0.018716955965782472,
+                      "STEM.Space": 7.17106322463135e-05,
+                      "STEM.Technology": 0.004560309592632347
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+  recorded_at: Mon, 20 Dec 2021 14:08:44 GMT
+- request:
+    method: get
+    uri: https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=sitelinks&sitefilter=enwiki&sites=enwiki&titles=Amos%20Singletary
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Dec 2021 14:08:42 GMT
+      Server:
+      - mw1383.eqiad.wmnet
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="See https://www.wikidata.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename=api-result.json
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Length:
+      - '161'
+      Content-Type:
+      - application/json; charset=utf-8
+      Age:
+      - '0'
+      X-Cache:
+      - cp1077 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikidata.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikidata.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"entities":{"Q41327170":{"type":"item","id":"Q41327170","sitelinks":{"enwiki":{"site":"enwiki","title":"Amos
+        Singletary","badges":["Q17437798"]}}}},"success":1}'
+  recorded_at: Mon, 20 Dec 2021 14:08:44 GMT
+recorded_with: VCR 6.0.0

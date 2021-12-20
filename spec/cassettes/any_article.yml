@@ -1,0 +1,352 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/random/summary
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 303
+      message: See Other
+    headers:
+      Location:
+      - "../summary/Gentianella_alborosea"
+      Content-Location:
+      - https://en.wikipedia.org/api/rest_v1/page/random/summary
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Cache-Control:
+      - private, max-age=0, s-maxage=0, must-revalidate
+      Server:
+      - restbase1028
+      Date:
+      - Mon, 20 Dec 2021 13:22:52 GMT
+      Age:
+      - '0'
+      X-Cache:
+      - cp1075 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 20 Dec 2021 13:22:53 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/summary/Gentianella_alborosea
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"
+      Cache-Control:
+      - s-maxage=1209600, max-age=300
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Encoding
+      Content-Location:
+      - https://en.wikipedia.org/api/rest_v1/page/summary/Gentianella_alborosea
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Server:
+      - restbase1020
+      Date:
+      - Mon, 20 Dec 2021 05:21:56 GMT
+      Etag:
+      - W/"1009999588/de5a7020-60ec-11ec-a9da-52c13ea4983d"
+      Age:
+      - '28856'
+      X-Cache:
+      - cp1083 hit, cp1085 miss
+      X-Cache-Status:
+      - hit-local
+      Server-Timing:
+      - cache;desc="hit-local", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"standard","title":"Gentianella alborosea","displaytitle":"<i>Gentianella
+        alborosea</i>","namespace":{"id":0,"text":""},"wikibase_item":"Q3100864","titles":{"canonical":"Gentianella_alborosea","normalized":"Gentianella
+        alborosea","display":"<i>Gentianella alborosea</i>"},"pageid":30729773,"thumbnail":{"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gentianella_alborosea.JPG/320px-Gentianella_alborosea.JPG","width":320,"height":240},"originalimage":{"source":"https://upload.wikimedia.org/wikipedia/commons/d/d6/Gentianella_alborosea.JPG","width":2560,"height":1920},"lang":"en","dir":"ltr","revision":"1009999588","tid":"fe32d9a0-60e7-11ec-8105-d5805acefbba","timestamp":"2021-03-03T09:25:59Z","description":"Species
+        of plant","description_source":"local","content_urls":{"desktop":{"page":"https://en.wikipedia.org/wiki/Gentianella_alborosea","revisions":"https://en.wikipedia.org/wiki/Gentianella_alborosea?action=history","edit":"https://en.wikipedia.org/wiki/Gentianella_alborosea?action=edit","talk":"https://en.wikipedia.org/wiki/Talk:Gentianella_alborosea"},"mobile":{"page":"https://en.m.wikipedia.org/wiki/Gentianella_alborosea","revisions":"https://en.m.wikipedia.org/wiki/Special:History/Gentianella_alborosea","edit":"https://en.m.wikipedia.org/wiki/Gentianella_alborosea?action=edit","talk":"https://en.m.wikipedia.org/wiki/Talk:Gentianella_alborosea"}},"extract":"Gentianella
+        alborosea is a species of plant in the family Gentianaceae. It is one of two
+        types of hercampuri, which is traditionally used in herbal medicine as an
+        infusion, the other type of hercampuri being Gentianella nitida. It has been
+        used in Peruvian folk medicine since before the time of the Incas. These small
+        shrubs are native to the high Andes of Peru. The Junin Province is a region
+        of Peru that grows hercampuri.","extract_html":"<p><i><b>Gentianella alborosea</b></i>
+        is a species of plant in the family Gentianaceae. It is one of two types of
+        hercampuri, which is traditionally used in herbal medicine as an infusion,
+        the other type of hercampuri being <i>Gentianella nitida</i>. It has been
+        used in Peruvian folk medicine since before the time of the Incas. These small
+        shrubs are native to the high Andes of Peru. The Junin Province is a region
+        of Peru that grows hercampuri.</p>"}'
+  recorded_at: Mon, 20 Dec 2021 13:22:53 GMT
+- request:
+    method: get
+    uri: https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=1009999588
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Pragma:
+      - no-cache
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - ores1001.eqiad.wmnet
+      Access-Control-Allow-Headers:
+      - X-Wikimedia-Debug
+      Date:
+      - Mon, 20 Dec 2021 13:22:52 GMT
+      Vary:
+      - Accept-Encoding
+      Age:
+      - '0'
+      X-Cache:
+      - cp1083 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "enwiki": {
+            "models": {
+              "articletopic": {
+                "version": "1.3.0"
+              }
+            },
+            "scores": {
+              "1009999588": {
+                "articletopic": {
+                  "score": {
+                    "prediction": [
+                      "STEM.Biology",
+                      "STEM.STEM*"
+                    ],
+                    "probability": {
+                      "Culture.Biography.Biography*": 0.0036968351727654316,
+                      "Culture.Biography.Women": 0.001537048889796137,
+                      "Culture.Food and drink": 0.09639777801476372,
+                      "Culture.Internet culture": 0.00011014070754384124,
+                      "Culture.Linguistics": 0.0009695127265597229,
+                      "Culture.Literature": 0.0009503327845400274,
+                      "Culture.Media.Books": 0.00025132520631646337,
+                      "Culture.Media.Entertainment": 0.0001842746973288901,
+                      "Culture.Media.Films": 0.00010332186314265172,
+                      "Culture.Media.Media*": 0.0013889695077943251,
+                      "Culture.Media.Music": 0.0003067222662535956,
+                      "Culture.Media.Radio": 9.037027471557676e-06,
+                      "Culture.Media.Software": 0.00013916812132565656,
+                      "Culture.Media.Television": 0.00033502544801306114,
+                      "Culture.Media.Video games": 1.950829753616974e-05,
+                      "Culture.Performing arts": 0.00019026596643285321,
+                      "Culture.Philosophy and religion": 0.005876558821849751,
+                      "Culture.Sports": 0.0013087599709333457,
+                      "Culture.Visual arts.Architecture": 0.00029787092973153665,
+                      "Culture.Visual arts.Comics and Anime": 0.00015386517547581288,
+                      "Culture.Visual arts.Fashion": 0.0005050962995785532,
+                      "Culture.Visual arts.Visual arts*": 0.0019164530201795215,
+                      "Geography.Geographical": 0.001968242723418224,
+                      "Geography.Regions.Africa.Africa*": 0.002353000038520746,
+                      "Geography.Regions.Africa.Central Africa": 0.0009578914544466537,
+                      "Geography.Regions.Africa.Eastern Africa": 6.906936559663806e-05,
+                      "Geography.Regions.Africa.Northern Africa": 0.0002542620655529005,
+                      "Geography.Regions.Africa.Southern Africa": 0.0005282044464941755,
+                      "Geography.Regions.Africa.Western Africa": 0.00012001244509300965,
+                      "Geography.Regions.Americas.Central America": 0.0019252631994055307,
+                      "Geography.Regions.Americas.North America": 0.003902964138553696,
+                      "Geography.Regions.Americas.South America": 0.4104605793043712,
+                      "Geography.Regions.Asia.Asia*": 0.006575842052256792,
+                      "Geography.Regions.Asia.Central Asia": 7.199169540344838e-05,
+                      "Geography.Regions.Asia.East Asia": 0.0019077419800470111,
+                      "Geography.Regions.Asia.North Asia": 0.00017187403346400354,
+                      "Geography.Regions.Asia.South Asia": 0.0005684826484708764,
+                      "Geography.Regions.Asia.Southeast Asia": 0.0002894358246242996,
+                      "Geography.Regions.Asia.West Asia": 0.00019827966752133537,
+                      "Geography.Regions.Europe.Eastern Europe": 0.0007777068243011344,
+                      "Geography.Regions.Europe.Europe*": 0.006583624181821838,
+                      "Geography.Regions.Europe.Northern Europe": 0.0016570966941617399,
+                      "Geography.Regions.Europe.Southern Europe": 0.0012316444390005014,
+                      "Geography.Regions.Europe.Western Europe": 0.0016447859263310344,
+                      "Geography.Regions.Oceania": 0.0010142326981983393,
+                      "History and Society.Business and economics": 0.0011861679050648815,
+                      "History and Society.Education": 0.0015562770687934696,
+                      "History and Society.History": 0.001872455292433192,
+                      "History and Society.Military and warfare": 0.0010301643807787838,
+                      "History and Society.Politics and government": 0.0009706691687949021,
+                      "History and Society.Society": 0.00668882996313479,
+                      "History and Society.Transportation": 0.00012196377450427813,
+                      "STEM.Biology": 0.9869322808781825,
+                      "STEM.Chemistry": 0.0022678380473113934,
+                      "STEM.Computing": 0.00021165139423414274,
+                      "STEM.Earth and environment": 0.0007729156750849768,
+                      "STEM.Engineering": 0.0005480277061763933,
+                      "STEM.Libraries & Information": 0.00043363521157381313,
+                      "STEM.Mathematics": 0.00019951908185233228,
+                      "STEM.Medicine & Health": 0.11617459423816975,
+                      "STEM.Physics": 0.00026042943159542667,
+                      "STEM.STEM*": 0.9929410339113496,
+                      "STEM.Space": 1.3159555759063738e-05,
+                      "STEM.Technology": 0.0012303690361518912
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+  recorded_at: Mon, 20 Dec 2021 13:22:54 GMT
+recorded_with: VCR 6.0.0

@@ -11,29 +11,35 @@ RSpec.describe "Recommendation page", type: :system do
     end
 
     it "continues to be shown in shorthand style after form submission" do
-      visit recommendations_show_path
-      # a top-level category, shorthand for its many sub-categories.
-      categories_text_before_submit = "STEM"
-      fill_in 'starter_categories', with: categories_text_before_submit
-      submit
-      categories_text_after_submit = find('#starter_categories').value
-      expect(categories_text_after_submit).to eq categories_text_before_submit
+      VCR.use_cassette "any_article" do
+        visit recommendations_show_path
+        # a top-level category, shorthand for its many sub-categories.
+        categories_text_before_submit = "STEM"
+        fill_in 'starter_categories', with: categories_text_before_submit
+        submit
+        categories_text_after_submit = find('#starter_categories').value
+        expect(categories_text_after_submit).to eq categories_text_before_submit
+      end
     end
 
     it "does not cause a cookie overflow error, instead showing an alert" do
-      visit recommendations_show_path
-      all_top_level_categories = "Culture, Geography, History and Society, STEM"
-      fill_in 'starter_categories', with: all_top_level_categories
-      submit
-      expect(page).to have_selector('div.alert')
-      expect(page).not_to have_selector('#recommendation')
+      VCR.use_cassette "any_article" do
+        visit recommendations_show_path
+        all_top_level_categories = "Culture, Geography, History and Society, STEM"
+        fill_in 'starter_categories', with: all_top_level_categories
+        submit
+        expect(page).to have_selector('div.alert')
+        expect(page).not_to have_selector('#recommendation')
+      end
     end
 
     it "can be blank" do
-      visit recommendations_show_path
-      fill_in 'starter_categories', with: ""
-      submit
-      expect(page).to have_selector('#recommendation')
+      VCR.use_cassette "any_article" do
+        visit recommendations_show_path
+        fill_in 'starter_categories', with: ""
+        submit
+        expect(page).to have_selector('#recommendation')
+      end
     end
   end
 
@@ -44,48 +50,58 @@ RSpec.describe "Recommendation page", type: :system do
     end
 
     it "remembers the selected option after form submission" do
-      visit recommendations_show_path
-      choose 'article_type_good'
-      submit
-      expect(page).to have_checked_field('article_type_good')
+      VCR.use_cassette "good_article" do
+        visit recommendations_show_path
+        choose 'article_type_good'
+        submit
+        expect(page).to have_checked_field('article_type_good')
+      end
     end
 
     it "shows a good article when 'Good' is selected" do
-      visit recommendations_show_path
-      choose 'article_type_good'
-      submit
-      expect(article_type(article_title)).to eq :good
+      VCR.use_cassette "good_article" do
+        visit recommendations_show_path
+        choose 'article_type_good'
+        submit
+        expect(article_type(article_title)).to eq :good
+      end
     end
 
     it "shows a featured article when 'Featured' is selected" do
-      visit recommendations_show_path
-      choose 'article_type_featured'
-      submit
-      expect(article_type(article_title)).to eq :featured
+      VCR.use_cassette "featured_article" do
+        visit recommendations_show_path
+        choose 'article_type_featured'
+        submit
+        expect(article_type(article_title)).to eq :featured
+      end
     end
   end
 
   describe "recommended article" do
     it "is shown according to the user's category preferences" do
-      visit recommendations_show_path
-      categories_preference = "Geography"
-      5.times do # until a short enough recommendation that doesn't fill the cookies.
-        fill_in 'starter_categories', with: categories_preference
-        submit
-        break if find('#recommendation')
+      VCR.use_cassette "any_article_about_geography" do
+        visit recommendations_show_path
+        categories_preference = "Geography"
+        5.times do # until a short enough recommendation that doesn't fill the cookies.
+          fill_in 'starter_categories', with: categories_preference
+          submit
+          break if find('#recommendation')
+        end
+        expect(page).to have_selector("#recommendation")
+        article_categories = article_categories(article_title)
+        expect(article_categories.grep(/#{categories_preference}/).length).to be > 0
       end
-      expect(page).to have_selector("#recommendation")
-      article_categories = article_categories(article_title)
-      expect(article_categories.grep(/#{categories_preference}/).length).to be > 0
     end
 
     it "is the same after a page refresh" do
-      visit recommendations_show_path
-      submit
-      original_article_title = article_title
-      refresh
-      refreshed_article_title = article_title
-      expect(refreshed_article_title).to eq original_article_title
+      VCR.use_cassette "any_article", allow_playback_repeats: true do
+        visit recommendations_show_path
+        submit
+        original_article_title = article_title
+        refresh
+        refreshed_article_title = article_title
+        expect(refreshed_article_title).to eq original_article_title
+      end
     end
   end
 

@@ -71,4 +71,6 @@ group :development, :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "faker"
+  gem "webmock"
+  gem "vcr"
 end

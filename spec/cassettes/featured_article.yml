@@ -1,0 +1,466 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://randomincategory.toolforge.org/Featured_articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - randomincategory.toolforge.org
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Server:
+      - nginx/1.14.2
+      Date:
+      - Mon, 20 Dec 2021 14:10:11 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Location:
+      - !binary |-
+        aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvw4Z0aGVsc3RhbiBB
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31622400
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      Permissions-Policy:
+      - interest-cohort=()
+      Content-Security-Policy-Report-Only:
+      - 'default-src ''self'' ''unsafe-eval'' ''unsafe-inline'' blob: data: filesystem:
+        mediastream: *.toolforge.org wikibooks.org *.wikibooks.org wikidata.org *.wikidata.org
+        wikimedia.org *.wikimedia.org wikinews.org *.wikinews.org wikipedia.org *.wikipedia.org
+        wikiquote.org *.wikiquote.org wikisource.org *.wikisource.org wikiversity.org
+        *.wikiversity.org wikivoyage.org *.wikivoyage.org wiktionary.org *.wiktionary.org
+        *.wmcloud.org *.wmflabs.org wikimediafoundation.org mediawiki.org *.mediawiki.org
+        wss://randomincategory.toolforge.org; report-uri https://csp-report.toolforge.org/collect;'
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 20 Dec 2021 14:10:13 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/summary/%C3%86thelstan%20A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Location:
+      - "%C3%86thelstan_A"
+      Cache-Control:
+      - s-maxage=1209600, max-age=0, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Server:
+      - restbase1026
+      Date:
+      - Mon, 20 Dec 2021 14:10:12 GMT
+      Vary:
+      - X-Forwarded-Proto
+      Age:
+      - '0'
+      X-Cache:
+      - cp1083 miss, cp1085 miss
+      X-Cache-Status:
+      - miss
+      Server-Timing:
+      - cache;desc="miss", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 20 Dec 2021 14:10:13 GMT
+- request:
+    method: get
+    uri: https://en.wikipedia.org/api/rest_v1/page/summary/%C3%86thelstan_A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0"
+      Cache-Control:
+      - s-maxage=1209600, max-age=300
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Encoding
+      Content-Location:
+      - https://en.wikipedia.org/api/rest_v1/page/summary/%C3%86thelstan_A
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,HEAD
+      Access-Control-Allow-Headers:
+      - accept, content-type, content-length, cache-control, accept-language, api-user-agent,
+        if-match, if-modified-since, if-none-match, dnt, accept-encoding
+      Access-Control-Expose-Headers:
+      - etag
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      X-Webkit-Csp:
+      - default-src 'none'; frame-ancestors 'none'
+      Server:
+      - restbase1017
+      Date:
+      - Mon, 20 Dec 2021 01:38:30 GMT
+      Etag:
+      - W/"1016721196/12ed4e40-612c-11ec-902e-c8f55c024587"
+      Age:
+      - '45102'
+      X-Cache:
+      - cp1083 hit, cp1085 miss
+      X-Cache-Status:
+      - hit-local
+      Server-Timing:
+      - cache;desc="hit-local", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikipedia.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '846'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0eXBlIjoic3RhbmRhcmQiLCJ0aXRsZSI6IsOGdGhlbHN0YW4gQSIsImRpc3BsYXl0aXRsZSI6IsOGdGhlbHN0YW4gQSIsIm5hbWVzcGFjZSI6eyJpZCI6MCwidGV4dCI6IiJ9LCJ3aWtpYmFzZV9pdGVtIjoiUTE3NDkyMzY3IiwidGl0bGVzIjp7ImNhbm9uaWNhbCI6IsOGdGhlbHN0YW5fQSIsIm5vcm1hbGl6ZWQiOiLDhnRoZWxzdGFuIEEiLCJkaXNwbGF5Ijoiw4Z0aGVsc3RhbiBBIn0sInBhZ2VpZCI6NDM0MzUxMzQsInRodW1ibmFpbCI6eyJzb3VyY2UiOiJodHRwczovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS9jb21tb25zL3RodW1iLzIvMjcvU180MTZfRGlwbG9tYV9vZl9LaW5nXyVDMyU4NnRoZWxzdGFuX2Zvcl9XdWxmZ2FyX0FEXzkzMSUyQ193cml0dGVuX2J5XyVDMyU4NnRoZWxzdGFuX0EudGlmL2xvc3NsZXNzLXBhZ2UxLTMyMHB4LVNfNDE2X0RpcGxvbWFfb2ZfS2luZ18lQzMlODZ0aGVsc3Rhbl9mb3JfV3VsZmdhcl9BRF85MzElMkNfd3JpdHRlbl9ieV8lQzMlODZ0aGVsc3Rhbl9BLnRpZi5wbmciLCJ3aWR0aCI6MzIwLCJoZWlnaHQiOjE5MX0sIm9yaWdpbmFsaW1hZ2UiOnsic291cmNlIjoiaHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi8yLzI3L1NfNDE2X0RpcGxvbWFfb2ZfS2luZ18lQzMlODZ0aGVsc3Rhbl9mb3JfV3VsZmdhcl9BRF85MzElMkNfd3JpdHRlbl9ieV8lQzMlODZ0aGVsc3Rhbl9BLnRpZi9sb3NzbGVzcy1wYWdlMS00MjAwcHgtU180MTZfRGlwbG9tYV9vZl9LaW5nXyVDMyU4NnRoZWxzdGFuX2Zvcl9XdWxmZ2FyX0FEXzkzMSUyQ193cml0dGVuX2J5XyVDMyU4NnRoZWxzdGFuX0EudGlmLnBuZyIsIndpZHRoIjo0MjAwLCJoZWlnaHQiOjI1MDd9LCJsYW5nIjoiZW4iLCJkaXIiOiJsdHIiLCJyZXZpc2lvbiI6IjEwMTY3MjExOTYiLCJ0aWQiOiI2YWQyZjE2MC02MTJiLTExZWMtYTM5ZC0wNzViMTRiYTc4ZmUiLCJ0aW1lc3RhbXAiOiIyMDIxLTA0LTA4VDE4OjI3OjM1WiIsImRlc2NyaXB0aW9uIjoiVW5rbm93biBzY3JpYmUgd2hvIGRyYWZ0ZWQgY2hhcnRlcnMgZm9yIEtpbmcgw4Z0aGVsc3RhbiBvZiBFbmdsYW5kIiwiZGVzY3JpcHRpb25fc291cmNlIjoibG9jYWwiLCJjb250ZW50X3VybHMiOnsiZGVza3RvcCI6eyJwYWdlIjoiaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvJUMzJTg2dGhlbHN0YW5fQSIsInJldmlzaW9ucyI6Imh0dHBzOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpLyVDMyU4NnRoZWxzdGFuX0E/YWN0aW9uPWhpc3RvcnkiLCJlZGl0IjoiaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvJUMzJTg2dGhlbHN0YW5fQT9hY3Rpb249ZWRpdCIsInRhbGsiOiJodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9UYWxrOiVDMyU4NnRoZWxzdGFuX0EifSwibW9iaWxlIjp7InBhZ2UiOiJodHRwczovL2VuLm0ud2lraXBlZGlhLm9yZy93aWtpLyVDMyU4NnRoZWxzdGFuX0EiLCJyZXZpc2lvbnMiOiJodHRwczovL2VuLm0ud2lraXBlZGlhLm9yZy93aWtpL1NwZWNpYWw6SGlzdG9yeS8lQzMlODZ0aGVsc3Rhbl9BIiwiZWRpdCI6Imh0dHBzOi8vZW4ubS53aWtpcGVkaWEub3JnL3dpa2kvJUMzJTg2dGhlbHN0YW5fQT9hY3Rpb249ZWRpdCIsInRhbGsiOiJodHRwczovL2VuLm0ud2lraXBlZGlhLm9yZy93aWtpL1RhbGs6JUMzJTg2dGhlbHN0YW5fQSJ9fSwiZXh0cmFjdCI6IsOGdGhlbHN0YW4gQSBpcyB0aGUgbmFtZSBnaXZlbiBieSBoaXN0b3JpYW5zIHRvIGFuIHVua25vd24gc2NyaWJlIHdobyBkcmFmdGVkIGNoYXJ0ZXJzLCBieSB3aGljaCB0aGUga2luZyBtYWRlIGdyYW50cyBvZiBsYW5kLCBmb3IgS2luZyDDhnRoZWxzdGFuIG9mIEVuZ2xhbmQgYmV0d2VlbiA5MjggYW5kIDkzNS4gVGhleSBhcmUgYW4gaW1wb3J0YW50IHNvdXJjZSBmb3IgaGlzdG9yaWFucyBhcyB0aGV5IHByb3ZpZGUgZmFyIG1vcmUgaW5mb3JtYXRpb24gdGhhbiBvdGhlciBjaGFydGVycyBvZiB0aGUgcGVyaW9kLCBzaG93aW5nIHRoZSBkYXRlIGFuZCBwbGFjZSBvZiB0aGUgZ3JhbnQsIGFuZCBoYXZpbmcgYW4gdW51c3VhbGx5IGxvbmcgbGlzdCBvZiB3aXRuZXNzZXMsIGluY2x1ZGluZyBXZWxzaCBraW5ncyBhbmQgb2NjYXNpb25hbGx5IGtpbmdzIG9mIFNjb3RsYW5kIGFuZCBTdHJhdGhjbHlkZS4iLCJleHRyYWN0X2h0bWwiOiI8cD48Yj7DhnRoZWxzdGFuIEE8L2I+IGlzIHRoZSBuYW1lIGdpdmVuIGJ5IGhpc3RvcmlhbnMgdG8gYW4gdW5rbm93biBzY3JpYmUgd2hvIGRyYWZ0ZWQgY2hhcnRlcnMsIGJ5IHdoaWNoIHRoZSBraW5nIG1hZGUgZ3JhbnRzIG9mIGxhbmQsIGZvciBLaW5nIMOGdGhlbHN0YW4gb2YgRW5nbGFuZCBiZXR3ZWVuIDkyOCBhbmQgOTM1LiBUaGV5IGFyZSBhbiBpbXBvcnRhbnQgc291cmNlIGZvciBoaXN0b3JpYW5zIGFzIHRoZXkgcHJvdmlkZSBmYXIgbW9yZSBpbmZvcm1hdGlvbiB0aGFuIG90aGVyIGNoYXJ0ZXJzIG9mIHRoZSBwZXJpb2QsIHNob3dpbmcgdGhlIGRhdGUgYW5kIHBsYWNlIG9mIHRoZSBncmFudCwgYW5kIGhhdmluZyBhbiB1bnVzdWFsbHkgbG9uZyBsaXN0IG9mIHdpdG5lc3NlcywgaW5jbHVkaW5nIFdlbHNoIGtpbmdzIGFuZCBvY2Nhc2lvbmFsbHkga2luZ3Mgb2YgU2NvdGxhbmQgYW5kIFN0cmF0aGNseWRlLjwvcD4ifQ==
+  recorded_at: Mon, 20 Dec 2021 14:10:14 GMT
+- request:
+    method: get
+    uri: https://ores.wikimedia.org/v3/scores/enwiki/?models=articletopic&revids=1016721196
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Pragma:
+      - no-cache
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - ores1001.eqiad.wmnet
+      Access-Control-Allow-Headers:
+      - X-Wikimedia-Debug
+      Date:
+      - Mon, 20 Dec 2021 14:10:13 GMT
+      Vary:
+      - Accept-Encoding
+      Age:
+      - '1'
+      X-Cache:
+      - cp1085 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "enwiki": {
+            "models": {
+              "articletopic": {
+                "version": "1.3.0"
+              }
+            },
+            "scores": {
+              "1016721196": {
+                "articletopic": {
+                  "score": {
+                    "prediction": [
+                      "Geography.Regions.Europe.Europe*",
+                      "Geography.Regions.Europe.Northern Europe",
+                      "History and Society.History"
+                    ],
+                    "probability": {
+                      "Culture.Biography.Biography*": 0.38792868423719806,
+                      "Culture.Biography.Women": 0.0027905411719799673,
+                      "Culture.Food and drink": 0.0012496871990242589,
+                      "Culture.Internet culture": 0.0005051099850431394,
+                      "Culture.Linguistics": 0.04194833693664984,
+                      "Culture.Literature": 0.1480153834904903,
+                      "Culture.Media.Books": 0.05293785788860117,
+                      "Culture.Media.Entertainment": 0.0016379764649717098,
+                      "Culture.Media.Films": 0.000822235973986755,
+                      "Culture.Media.Media*": 0.10681363825266263,
+                      "Culture.Media.Music": 0.003961913251005755,
+                      "Culture.Media.Radio": 0.00015412479327474115,
+                      "Culture.Media.Software": 0.0007444546215922864,
+                      "Culture.Media.Television": 0.0014008836823927405,
+                      "Culture.Media.Video games": 6.078615055103411e-05,
+                      "Culture.Performing arts": 0.002956220665636856,
+                      "Culture.Philosophy and religion": 0.33737576170072203,
+                      "Culture.Sports": 0.0018382179121556748,
+                      "Culture.Visual arts.Architecture": 0.004936320987477384,
+                      "Culture.Visual arts.Comics and Anime": 0.0004949110466549891,
+                      "Culture.Visual arts.Fashion": 0.0016107480805794292,
+                      "Culture.Visual arts.Visual arts*": 0.020839431859310094,
+                      "Geography.Geographical": 0.014326429526061281,
+                      "Geography.Regions.Africa.Africa*": 0.017432131147051798,
+                      "Geography.Regions.Africa.Central Africa": 0.0005196388274002875,
+                      "Geography.Regions.Africa.Eastern Africa": 0.00029962491165303986,
+                      "Geography.Regions.Africa.Northern Africa": 0.006742539880650308,
+                      "Geography.Regions.Africa.Southern Africa": 0.0006716895309425786,
+                      "Geography.Regions.Africa.Western Africa": 5.045049438723864e-05,
+                      "Geography.Regions.Americas.Central America": 0.00033747852727584223,
+                      "Geography.Regions.Americas.North America": 0.004220159447131742,
+                      "Geography.Regions.Americas.South America": 0.0022181898865722143,
+                      "Geography.Regions.Asia.Asia*": 0.009553115679935583,
+                      "Geography.Regions.Asia.Central Asia": 0.00028395434058768615,
+                      "Geography.Regions.Asia.East Asia": 0.0007355744369076644,
+                      "Geography.Regions.Asia.North Asia": 0.001482477587683922,
+                      "Geography.Regions.Asia.South Asia": 0.0023994387339921633,
+                      "Geography.Regions.Asia.Southeast Asia": 0.0005292989011978282,
+                      "Geography.Regions.Asia.West Asia": 0.0025247657348772576,
+                      "Geography.Regions.Europe.Eastern Europe": 0.004452259451439756,
+                      "Geography.Regions.Europe.Europe*": 0.8566701705554289,
+                      "Geography.Regions.Europe.Northern Europe": 0.9312566467918022,
+                      "Geography.Regions.Europe.Southern Europe": 0.00810731707025836,
+                      "Geography.Regions.Europe.Western Europe": 0.051624553520668144,
+                      "Geography.Regions.Oceania": 0.001215136294449921,
+                      "History and Society.Business and economics": 0.03210744933369744,
+                      "History and Society.Education": 0.13833772080641224,
+                      "History and Society.History": 0.861338341254369,
+                      "History and Society.Military and warfare": 0.06537946819748637,
+                      "History and Society.Politics and government": 0.06694875043531212,
+                      "History and Society.Society": 0.04606316687942549,
+                      "History and Society.Transportation": 0.0029823961343436976,
+                      "STEM.Biology": 0.0012619377441516401,
+                      "STEM.Chemistry": 0.0023139509490718558,
+                      "STEM.Computing": 0.001442569223314265,
+                      "STEM.Earth and environment": 0.00545018096770848,
+                      "STEM.Engineering": 0.0015010822437018755,
+                      "STEM.Libraries & Information": 0.028915476700576228,
+                      "STEM.Mathematics": 0.0003308841258618561,
+                      "STEM.Medicine & Health": 0.0021059457010407247,
+                      "STEM.Physics": 0.001566655740821987,
+                      "STEM.STEM*": 0.042823391898772434,
+                      "STEM.Space": 0.00038778766522054575,
+                      "STEM.Technology": 0.003143360080960799
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+  recorded_at: Mon, 20 Dec 2021 14:10:15 GMT
+- request:
+    method: get
+    uri: https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&formatversion=2&props=sitelinks&sitefilter=enwiki&sites=enwiki&titles=%C3%86thelstan%20A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Dec 2021 14:10:13 GMT
+      Server:
+      - mw1359.eqiad.wmnet
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="See https://www.wikidata.org/wiki/Special:CentralAutoLogin/P3P for more
+        info."
+      X-Frame-Options:
+      - DENY
+      Content-Disposition:
+      - inline; filename=api-result.json
+      Vary:
+      - Accept-Encoding,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Length:
+      - '158'
+      Content-Type:
+      - application/json; charset=utf-8
+      Age:
+      - '0'
+      X-Cache:
+      - cp1083 miss, cp1085 pass
+      X-Cache-Status:
+      - pass
+      Server-Timing:
+      - cache;desc="pass", host;desc="cp1085"
+      Strict-Transport-Security:
+      - max-age=106384710; includeSubDomains; preload
+      Report-To:
+      - '{ "group": "wm_nel", "max_age": 86400, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0"
+        }] }'
+      Nel:
+      - '{ "report_to": "wm_nel", "max_age": 86400, "failure_fraction": 0.05, "success_fraction":
+        0.0}'
+      Permissions-Policy:
+      - interest-cohort=()
+      Set-Cookie:
+      - GeoIP=US:KY:Lexington:38.01:-84.42:v4; Path=/; secure; Domain=.wikidata.org
+      - WMF-Last-Access-Global=20-Dec-2021;Path=/;Domain=.wikidata.org;HttpOnly;secure;Expires=Fri,
+        21 Jan 2022 12:00:00 GMT
+      - WMF-Last-Access=20-Dec-2021;Path=/;HttpOnly;secure;Expires=Fri, 21 Jan 2022
+        12:00:00 GMT
+      X-Client-Ip:
+      - 75.89.171.108
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlbnRpdGllcyI6eyJRMTc0OTIzNjciOnsidHlwZSI6Iml0ZW0iLCJpZCI6IlExNzQ5MjM2NyIsInNpdGVsaW5rcyI6eyJlbndpa2kiOnsic2l0ZSI6ImVud2lraSIsInRpdGxlIjoiw4Z0aGVsc3RhbiBBIiwiYmFkZ2VzIjpbIlExNzQzNzc5NiJdfX19fSwic3VjY2VzcyI6MX0=
+  recorded_at: Mon, 20 Dec 2021 14:10:15 GMT
+recorded_with: VCR 6.0.0
