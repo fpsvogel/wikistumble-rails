@@ -14,7 +14,7 @@ RSpec.describe "Recommendation page", type: :system do
       visit recommendations_show_path
       # a top-level category, shorthand for its many sub-categories.
       categories_text_before_submit = "STEM"
-      find('#starter_categories').set(categories_text_before_submit)
+      fill_in 'starter_categories', with: categories_text_before_submit
       submit
       categories_text_after_submit = find('#starter_categories').value
       expect(categories_text_after_submit).to eq categories_text_before_submit
@@ -23,7 +23,7 @@ RSpec.describe "Recommendation page", type: :system do
     it "does not cause a cookie overflow error, instead showing an alert" do
       visit recommendations_show_path
       all_top_level_categories = "Culture, Geography, History and Society, STEM"
-      find('#starter_categories').set(all_top_level_categories)
+      fill_in 'starter_categories', with: all_top_level_categories
       submit
       expect(page).to have_selector('div.alert')
       expect(page).not_to have_selector('#recommendation')
@@ -31,7 +31,7 @@ RSpec.describe "Recommendation page", type: :system do
 
     it "can be blank" do
       visit recommendations_show_path
-      find('#starter_categories').set("")
+      fill_in 'starter_categories', with: ""
       submit
       expect(page).to have_selector('#recommendation')
     end
@@ -70,7 +70,7 @@ RSpec.describe "Recommendation page", type: :system do
       visit recommendations_show_path
       categories_preference = "Geography"
       5.times do # until a short enough recommendation that doesn't fill the cookies.
-        find('#starter_categories').set(categories_preference)
+        fill_in 'starter_categories', with: categories_preference
         submit
         break if find('#recommendation')
       end
