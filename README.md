@@ -18,7 +18,7 @@ The result is an app that surely can (and will) be improved and expanded, but is
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/fpsvogel/wikistumble.
+Bug reports and pull requests are welcome on GitHub at https://github.com/fpsvogel/wikistumble-rails.
 
 ## Requirements
 
@@ -30,13 +30,13 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/fpsvog
 
 - Checkout the wikistumble git tree from Github:
     ```sh
-    $ git clone git://github.com/fpsvogel/wikistumble.git
-    $ cd wikistumble
-    wikistumble$
+    $ git clone git://github.com/fpsvogel/wikistumble-rails.git
+    $ cd wikistumble-rails
+    wikistumble-rails$
     ```
 - Run Bundler to install gems needed by the project:
     ```sh
-    wikistumble$ bundle
+    wikistumble-rails$ bundle
     ```
 - If this is your first time using PostgreSQL, log in to PostgreSQL and create a user:
     ```
